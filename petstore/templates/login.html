@@ -1,0 +1,39 @@
+    {% extends 'layout.html'%}
+
+    {% load static %}
+
+        {% block 'main'%}
+        <div class="row">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+            {% endif %}
+
+            {% if error %}
+                <div class="alert alert-sucess" role="alert">
+                    {{sucess}}
+                </div>
+            {% endif %}
+
+
+            <form action="/login" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 mx-auto">
+                    <label for="exampleFormControlInput1" class="form-label">username</label>
+                    <input type="text" class="form-control" name="username" >
+                    </div>
+                    
+                    <label for="inputPassword5" class="form-label">Password</label>
+                <input type="password" id="inputPassword5" name="password" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" >
+                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                </div>  
+                <input type="submit" name="login" value="login"> 
+                <a href="/register">sign up</a>
+                </form>
+                    
+                </div>
+        
+            </div>
+        {% endblock 'main'%}

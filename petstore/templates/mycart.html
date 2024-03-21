@@ -1,0 +1,35 @@
+{% extends 'layout.html'%}
+
+{% load static %}
+
+{% block 'main' %}
+<div class="row">
+    <div class="col-md-8">
+         {% for cart in mycart %}
+         <div class="row">
+            <div class="col-md-6">
+                <img src="{{ cart.pid.pimage.url }}" alt=""  style=" height:30vh; width:20vw;">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{cart.pid.name}}</h5>
+                    <strong>{{cart.pid.breed}}</strong><br>
+                    <strong>{{ cart.pid.price }}</strong><br>
+                    <p class="card-text">{{ pet.description }}</p>
+                    <a href="/delete/{{ cart.id }}" class="btn btn-primary">remove</a>&nbsp;
+                    <a href="/" class="btn btn-primary">aur chayiye </a>
+                    </div>
+            </div>
+         </div>
+
+         {% endfor %}
+    </div>
+    <div class="col-md-4">
+          <h4 class="">billing sections</h4>
+          <p>amount to be paid : {{total}}</p>
+          <p>number of items : {{count}}</p>
+          <a href="/confirmorder"><button>confirm order</button></a>
+          <a href="/"><button>back</button></a>
+    </div>
+</div>
+{% endblock 'main' %}

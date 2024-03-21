@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+
+{% load static %}
+
+{% block 'main'%}
+            <div class="row">
+                {% for msg in messages %}
+                 <h5>{{ msg }}</h5>
+                {% endfor %}
+                {% for pet in pets %}
+                <div class="col-md-3 col-sm-3 box " style="width: 10vw;">
+                    <div class="card" style="width: 100%;">
+                    <img src="{{ pet.pimage.url }}" alt="" style="height: 20vh; width:10vw" >
+                        <div class="card-body">
+                        <h5 class="card-title">{{ pet.name }}</h5>
+                        <strong>{{ pet.breed }}</strong>
+                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <a href="/details/{{ pet.id }}" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+               
+                </div>
+                {% endfor %}
+                </div>
+{% endblock 'main'%}
+
